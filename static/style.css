@@ -1,0 +1,29 @@
+.btn {
+    border-radius: 4px;
+    background-color: #FFF;
+    /* width: 48px; */
+    /* height: 25px; */
+    font-size: 14px;
+    cursor: pointer;
+    padding: 6px 12px;
+    margin-bottom: 10px;
+}
+
+.btn-getfile {
+    border: 1px solid rgb(112, 180, 192);
+}
+
+.btn-submit {
+    border: 1px solid rgb(93, 126, 197);
+}
+
+.file-input {
+    padding-left: 6px;
+    outline: none;
+    border: 1px solid #ddd;
+    background: #ececec;
+    border-radius: 4px;
+    width: 120px;
+    height: 25px;
+    vertical-align: center;
+}
