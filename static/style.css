@@ -17,6 +17,10 @@
     border: 1px solid rgb(93, 126, 197);
 }
 
+.btn-login {
+    border: 1px solid rgb(120, 206, 146)
+}
+
 .file-input {
     padding-left: 6px;
     outline: none;
