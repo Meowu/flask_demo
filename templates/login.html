@@ -1,17 +1,17 @@
-<% extends "layout.html" %>
-<% block title %>Login<% endblock %>
-<% block content %>
+{% extends "layout.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
     <form id="login">
         <fieldset form="login">
             <legend>Login</legend>
             <p>
-                <label for="username"></label>
+                <label for="username">Username: </label>
                 <input type="text" name="username" id="username" >
             </p>
             <p>
-                <label for="password"></label>
+                <label for="password">Password: </label>
                 <input type="password" name="password" id="password" >
             </p>
         </fieldset>
     </form>
-<% endblock %>
+{% endblock %}

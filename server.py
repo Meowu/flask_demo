@@ -1,17 +1,26 @@
 #!/usr/bin/python3
 
-from flask import Flask, render_template, request, jsonify, make_response
+from flask import Flask, render_template, request, jsonify, make_response, url_for
 from datetime import timedelta
+from jinja2 import Environment, PackageLoader, select_autoescape
 from pprint import pprint
 import json
 import os
 app = Flask(__name__)
 
+env = Environment(
+    loader=PackageLoader('server', 'templates'),
+    autoescape=select_autoescape(['html', 'xml'])
+)
+
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = timedelta(seconds=1)
 
 @app.route('/')
 def server():
+    template = env.get_template('index.html')
+    print(template)
     return render_template('index.html')
+    # return template.render()
 
 @app.route('/files/<filename>')
 def get_file(filename):
@@ -25,6 +34,15 @@ def get_file(filename):
     with open('files/' + filename, 'rt') as f:
         data = f.read()
         return valid_message(data)
+
+@app.route('/login', methods=["GET", "POST"])
+def login():
+    method = request.method
+    print("Method: ", method)
+    if (method == 'GET'):
+        template = env.get_template("login.html")
+        return render_template('login.html')   
+        # return template.render()     
 
 @app.route('/files', methods=["GET", "PUT"])
 def handle_files():
